@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            #div1 
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70px;
+                height: 70px;
+                border: 1px solid #aaaaaa;
+            }
+        </style>
+
+        <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }  
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+    </head>
+
+    <body>
+        <p>Drag the image into the rectangle:</p>
+
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <br>
+        <i class="material-icons" style="font-size: 36px; color:blue; padding:15px;" draggable="true" ondragstart="drag(event)" id="drag1">home</i>
+        </div>
+    </body>
+</html>
